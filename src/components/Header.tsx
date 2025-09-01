@@ -1,11 +1,19 @@
-import {Link} from 'react-router';
 import { NavLink } from 'react-router';
 import CartIcon from '../assets/icons/cart-icon.png'
 import SearchIcon from '../assets/icons/search-icon.png'
 import './header.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-export function Header({cart}) {
+
+type HederProps = {
+  cart: {
+    productId : string;
+    quantity : number;
+    deliveryOptionId : string;
+  } [];
+}
+
+export function Header( {cart} : HederProps) {
   const [searchText, setSearchText] = useState('');
   const navigate = useNavigate();
   const updateSearchInput = (event) => {
