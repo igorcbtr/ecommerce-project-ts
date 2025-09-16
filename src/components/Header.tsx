@@ -5,7 +5,7 @@ import './header.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-type HederProps = {
+type HeaderProps = {
   cart: {
     productId : string;
     quantity : number;
@@ -13,10 +13,10 @@ type HederProps = {
   } [];
 }
 
-export function Header( {cart} : HederProps) {
+export function Header( {cart} : HeaderProps) {
   const [searchText, setSearchText] = useState('');
   const navigate = useNavigate();
-  const updateSearchInput = (event) => {
+  const updateSearchInput = (event : React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value)
   }
 
